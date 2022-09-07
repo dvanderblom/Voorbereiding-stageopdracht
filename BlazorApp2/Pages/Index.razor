@@ -1,0 +1,21 @@
+﻿@page "/"
+@inject IJSRuntime JsRuntime
+
+<PageTitle>Index</PageTitle>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="map"></div>
+</body>
+</html>
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if(firstRender) {
+            await JsRuntime.InvokeVoidAsync("initialize", null);
+        }
+    }
+
+}
