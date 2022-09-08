@@ -1,0 +1,36 @@
+﻿@page "/map"
+@inject IJSRuntime JsRuntime
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 75%;
+    }
+</style>
+
+@code {
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+
+        JsRuntime.InvokeVoidAsync("mapBoxFunctions.initMapBox");
+
+    }
+
+}
